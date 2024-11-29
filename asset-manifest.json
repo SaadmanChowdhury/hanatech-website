@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/hanatech-website/static/css/main.b505c186.css",
-    "main.js": "/hanatech-website/static/js/main.69f0116f.js",
-    "index.html": "/hanatech-website/index.html",
-    "main.b505c186.css.map": "/hanatech-website/static/css/main.b505c186.css.map",
-    "main.69f0116f.js.map": "/hanatech-website/static/js/main.69f0116f.js.map"
+    "main.css": "/static/css/main.b505c186.css",
+    "main.js": "/static/js/main.69f0116f.js",
+    "index.html": "/index.html",
+    "main.b505c186.css.map": "/static/css/main.b505c186.css.map",
+    "main.69f0116f.js.map": "/static/js/main.69f0116f.js.map"
   },
   "entrypoints": [
     "static/css/main.b505c186.css",
