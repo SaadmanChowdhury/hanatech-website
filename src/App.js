@@ -10,18 +10,9 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <hr/>
       <Home />
-      <hr/>
       <Services />
-      <hr/>
-      <Projects />
-      <hr/>
-      <Journey />
-      <hr/>
       <Contact />
-      <hr/>
-      <Footer />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 const Journey = () => {
     return (
-        <div className="journey">
+        <section className="journey">
 
             <u>Journey</u><br/><br/>
 
@@ -10,7 +10,7 @@ const Journey = () => {
             Implementation<br/>
             QA<br/>
             Post production support<br/><br/>
-        </div>
+        </section>
     );
 }
  

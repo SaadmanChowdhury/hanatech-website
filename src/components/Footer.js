@@ -1,10 +1,10 @@
 const Footer = () => {
     return (
-        <div className="footer">
+        <section className="footer">
             <u>Footer</u><br/><br/>
             Links<br/>
             Footer<br/>
-        </div>
+        </section>
     );
 }
  

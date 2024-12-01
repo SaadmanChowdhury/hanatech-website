@@ -1,6 +1,6 @@
 const Services = () => {
     return (
-        <div className="services">
+        <section className="services">
             <br/><u>Services</u>
 
             <p>Layout: A grid-style card system with three main sections.</p>
@@ -18,7 +18,7 @@ const Services = () => {
             <br/>
             Each service card includes a "Learn More" button.<br/>
             <br/>
-        </div>
+        </section>
     );
 }
  
