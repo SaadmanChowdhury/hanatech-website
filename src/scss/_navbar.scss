@@ -1,0 +1,39 @@
+@mixin flexBox($jusitfy) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: $jusitfy;
+    width: auto;
+
+    & div {
+        padding: 10px;
+    }
+}
+
+.navbar {
+
+    @include mobile {
+        display: none;
+    }
+
+    background-color: gray;
+    font-size: $font-size;
+    font-weight: weight("bold");
+    width: 100%;
+
+    @include flexBox(space-between);
+
+    #{&}-left {
+        @include flexBox(left);
+    }
+
+    #{&}-right {
+        
+    @include flexBox(right);
+
+        &:hover {
+            color: $accent-color;
+        }
+            
+    }
+}

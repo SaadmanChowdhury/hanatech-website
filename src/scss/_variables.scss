@@ -1,0 +1,18 @@
+$mobile: 800px;
+
+$primary-color: #272727;
+$accent-color: #FF652F;
+$text-color: #FFF;
+$font-size: 20px;
+
+$font-weights: (
+    "regular": 400,
+    "medium": 500,
+    "bold": 700
+);
+
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
