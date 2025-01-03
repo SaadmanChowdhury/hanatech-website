@@ -1,4 +1,5 @@
-$mobile: 800px;
+$mobile: 768px;
+$desktop: 769px;
 
 $primary-color: #272727;
 $accent-color: #FF652F;
@@ -11,8 +12,27 @@ $font-weights: (
     "bold": 700
 );
 
+@function weight($weight-name) {
+    @return map-get($font-weights, $weight-name);
+}
+
 @mixin mobile {
     @media (max-width: $mobile) {
         @content;
     }
+}
+
+@mixin section() {
+    outline: solid black thick;
+    width: 100%;
+}
+
+// flex-direction: direction in which the objects will be added one after the other - row or column
+// justify-content: the space between each item and the page itself - start, center, space-between, space-evenly, space-around
+// align-items: incase the item is smaller than the space allocated for it, where will the item sit? - start, end, center, stretch (forces item to take the entirity of its allocated space)
+@mixin flexBox($flexDirection,$jusitfyContent,$alignItems) {
+    display: flex;
+    flex-direction: $flexDirection;
+    align-items: $alignItems;
+    justify-content: $jusitfyContent;
 }

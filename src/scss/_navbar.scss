@@ -1,39 +1,158 @@
-@mixin flexBox($jusitfy) {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: $jusitfy;
-    width: auto;
+/* ------------------------------
+   Variables
+------------------------------ */
+$navbar-bg-color: #fff;
+$navbar-text-color: #333;
+$navbar-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+$navbar-z-index: 1000;
+$navbar-padding: 1rem;
+$navbar-height: 60px;
+$font-family: 'Arial, sans-serif';
 
-    & div {
-        padding: 10px;
+/* ------------------------------
+   Base Styles
+------------------------------ */
+.navbar {
+    position: fixed;
+    width: 100%;
+    background-color: $navbar-bg-color;
+    color: $navbar-text-color;
+    z-index: $navbar-z-index;
+    box-shadow: $navbar-shadow;
+    font-family: $font-family;
+
+    &.desktop-hidden {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    &.desktop-visible {
+        transform: translateY(0);
+        transition: transform 0.3s ease-in-out;
     }
 }
 
-.navbar {
+/* ------------------------------
+   Desktop (PC) View
+------------------------------ */
+.navbar-container-pc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $navbar-padding;
+    height: $navbar-height;
 
-    @include mobile {
-        display: none;
-    }
+    .navbar-left {
+        display: flex;
+        align-items: center;
 
-    background-color: gray;
-    font-size: $font-size;
-    font-weight: weight("bold");
-    width: 100%;
-
-    @include flexBox(space-between);
-
-    #{&}-left {
-        @include flexBox(left);
-    }
-
-    #{&}-right {
-        
-    @include flexBox(right);
-
-        &:hover {
-            color: $accent-color;
+        .navbar-logo {
+            max-height: 40px;
+            margin-right: 1rem;
         }
-            
+
+        .navbar-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: opacity 0.3s ease-in-out;
+        }
+    }
+
+    .navbar-right {
+        display: flex;
+        gap: 1rem;
+
+        .navbar-link {
+            text-decoration: none;
+            color: $navbar-text-color;
+            font-size: 1rem;
+
+            &:hover {
+                color: darken($navbar-text-color, 10%);
+            }
+        }
+
+        &.open {
+            display: flex; // Ensure it works when toggled
+        }
+    }
+}
+
+/* ------------------------------
+   Mobile (SP) View
+------------------------------ */
+.navbar-container-sp {
+    display: flex;
+    flex-direction: column;
+    padding: $navbar-padding;
+
+    .navbar-left {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .navbar-logo {
+            max-height: 40px;
+        }
+
+        .hamburger-button {
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .navbar-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: block;
+            margin-left: 1rem;
+        }
+    }
+
+    .mobile-drawer {
+        position: absolute;
+        top: $navbar-height;
+        left: 0;
+        width: 100%;
+        background-color: $navbar-bg-color;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        box-shadow: $navbar-shadow;
+
+        .mobile-link {
+            text-decoration: none;
+            color: $navbar-text-color;
+            font-size: 1rem;
+
+            &:hover {
+                color: darken($navbar-text-color, 10%);
+            }
+        }
+    }
+}
+
+/* ------------------------------
+   Media Queries
+------------------------------ */
+@media (max-width: $mobile) {
+    .navbar-container-pc {
+        display: none; // Hide desktop navbar
+    }
+
+    .navbar-container-sp {
+        display: flex; // Show mobile navbar
+    }
+}
+
+@media (min-width: $desktop) {
+    .navbar-container-pc {
+        display: flex; // Show desktop navbar
+    }
+
+    .navbar-container-sp {
+        display: none; // Hide mobile navbar
     }
 }
